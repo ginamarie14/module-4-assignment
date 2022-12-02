@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <title>Code Quiz!</title>
+</head>
+
+<body>
+  <div class="topBox">
+      <h1>Coding Quiz</h1>
+      <h4>How much do you know about JavaScript?</h4>
+      <hr>
+      
+      <button id="runQuiz">Let's get going!</button>
+    <div id="quiz" class="row">
+      <h5 id="timeLeft"></h5>
+      <h5 id="currentScore"></h5>
+      <div id="timer">
+        <p>Remaining Time: </p>
+        <p id="timeLeft">0</p>
+      </div>
+      <div id = "question">
+        <p>test</p>
+      </div>
+    </div>
+  </div>
+  <div class="bottomBox">
+    <form id="scoreBoard" class="hide">
+        <div class="mb-3">
+          <label for="initials" class="form-label">Enter your initials</label>
+          <input type="text" class="form-control" name="initials" id="initials">
+        </div>
+        <button id="finalScore">Add me to the Scoreboard</button>
+    </form>
+  </div>
+  <script src="scrap.js"></script>
+</body>
+
+</html>
