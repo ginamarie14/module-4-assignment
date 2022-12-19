@@ -4,11 +4,11 @@ body{
  }
  
  .container {
-    margin-top: 40px;
+    margin-top: 0px;
  }
  
  .startMessageCard {
-    padding: 150px 0;
+    padding: 100px 50px 100px 50px;
  }
  
  #showScore, #showTimer {

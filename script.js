@@ -93,7 +93,7 @@ var questions = [
  
     // Gets and sets questions & answers based on currentQuesitionIndex
     function showQuestion(q) {
-       questionSection.innerHTML = questions[q].question;
+        questionSectionement.textContent = questions[q].question;
        userAnswer1Btn.textContent = questions[q].answers[0];
        userAnswer2Btn.textContent = questions[q].answers[1];
        userAnswer3Btn.textContent = questions[q].answers[2];
