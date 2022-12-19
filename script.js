@@ -101,7 +101,7 @@ var questions = [
  
     $("#answerBtns button").on("click", (function(event) {
     let userGuess = $(this).text();
-        if (userGuess === questions[currentQuestionIndex].answers) {
+        if (userGuess === questions[currentQuestionIndex].correctAnswer) {
             rightAnswer();
             console.log("correct");
         }
