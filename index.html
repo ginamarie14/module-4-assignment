@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-  <title>Code Quiz!</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JavaScript Quiz</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-
 <body>
-  <div class="topBox">
-      <h1>Coding Quiz</h1>
-      <h4>How much do you know about JavaScript?</h4>
-      <hr>
-      
-      <button id="runQuiz">Let's get going!</button>
-    <div id="quiz" class="row">
-      <h5 id="timeLeft"></h5>
-      <h5 id="currentScore"></h5>
-      <div id="timer">
-        <p>Remaining Time: </p>
-        <p id="timeLeft">0</p>
-      </div>
-      <div id = "question">
-        <p>test</p>
-      </div>
-    </div>
-  </div>
-  <div class="bottomBox">
-    <form id="scoreBoard" class="hide">
-        <div class="mb-3">
-          <label for="initials" class="form-label">Enter your initials</label>
-          <input type="text" class="form-control" name="initials" id="initials">
-        </div>
-        <button id="finalScore">Add me to the Scoreboard</button>
-    </form>
-  </div>
-  <script src="scrap.js"></script>
-</body>
+   <header class="row" style="display: flex">
+       <h1>Coding Quiz!</h1>
+       <br>
+       <h3>How much do you know about JavaScript?</h3>
+   </header>   
+   <div class="container" id="startMessage" style="display: block">
+       <div class="card px-5">
+           <div class="card-body startMessageCard text-center">
+               <h2 class="card-title cover-heading">How good is your coding knowledge?</h2>
+               <p class="card-text lead">Let's play to find out!</p>
+               <a href="#" id="startBtn" class="btn btn-primary">Let's Go!</a>
+           </div>
+       </div>
+   </div>
 
+   <section class="container" id="questions" style="display: none">
+       <h4 class="text-sm-right text-center pb-5">Timer: <span id="showTimer"></span></h4>
+       <h2 id="question" class="text-center font-weight-normal mb-5"></h2>
+       <div id="answerBtns" class="buttons"> 
+           <button type="button" class="btn btn-dark btn-lg btn-block choices" id="answer1"></button>
+           <button type="button" class="btn btn-secondary btn-lg btn-block choices" id="answer2"></button>   
+           <button type="button" class="btn btn-secondary btn-lg btn-block choices" id="answer3"></button>
+       </div> 
+       <div class="mt-5">
+           <h3 id="displayOngoingScore" class="text-center"></h3>
+       </div>
+   </section>
+
+   <div class="container gameOverContainer" id="gameOver" style="display: none">
+       <div class="card px-md-5">
+           <article class="card-body text-center">
+               <h2 class="text-center pb-5">Game Over!</h2>
+               <h3 class="text-center pb-3">Your score is: <span id="scoreOuput"></span></h3>
+               <form class="form-inline mb-2 justify-content-center">
+                   <div class="form-group mt-3">
+                       <label for="userName">Save your score for next time!</label>
+                       <input type="text" class="form-control ml-4" id="userName" placeholder="enter name" required>
+                   </div>
+               </form>
+               <div class="text-center endGameBtns mt-5 mb-5">
+                   <button id="saveScore" type="submit" class="btn btn-primary text-center endGameBtns">Save My Score</button>
+                   <button id="playAgainBtn" type="submit" class="btn btn-primary text-center endGameBtns">Try Again</button>
+                   <a href="index.html" class="btn btn-primary home endGameBtns">Home</a>
+               </div>
+               <h4 id="finalScore"></h4>
+           </article> 
+       </div>
+   </div>
+   <script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
 </html>

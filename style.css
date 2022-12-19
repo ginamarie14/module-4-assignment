@@ -1,4 +1,39 @@
-* {
+body{
+    background-color:  #CCCCFF;
+    height: 100vh;
+ }
+ 
+ .container {
+    margin-top: 40px;
+ }
+ 
+ .startMessageCard {
+    padding: 150px 0;
+ }
+ 
+ #showScore, #showTimer {
+    color: white;
+ }
+ 
+ 
+ @media only screen and (min-width: 768px) {
+    .container {
+    max-width: 600px;
+    margin-top: 200px;
+    }
+  }
+ 
+  @media only screen and (max-width: 468px) {
+    .endGameBtns {
+    margin: 10px;
+    }
+ 
+    h2, #displayQuestionOutcome {
+        font-size: 22px;
+    }
+ }
+
+/* * {
     font-family: 'Quicksand', sans-serif !important;
     background-color: #8cc2f1;
 }
@@ -88,11 +123,11 @@ button:hover{
 }
 /*double check*/
 
-#question {
+/* #question {
     position: absolute;
     top: 80px;
     display: flex;
     flex-direction: row;
     font-size: 26px;
     margin: 5px;
-}
+} */
