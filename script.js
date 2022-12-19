@@ -81,7 +81,7 @@ var questions = [
     function countDown() {
     let interval =  setInterval(function() {
             if (timeLeft <= 0 ) {
-                loadgameOver();
+                loadGameOver();
                 clearInterval(interval);
             } 
             else {
@@ -101,7 +101,7 @@ var questions = [
  
     $("#answerBtns button").on("click", (function(event) {
     let userGuess = $(this).text();
-        if (userGuess === questions[currentQuestionIndex].answer) {
+        if (userGuess === questions[currentQuestionIndex].answers) {
             rightAnswer();
             console.log("correct");
         }
