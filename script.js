@@ -45,8 +45,8 @@ var questions = [
     let startUp = document.getElementById('startMessage');
     let questionSection = document.getElementById('questions');
     let gameOver = document.getElementById('gameOver');
-    let userScoreSection = document.getElementById('scoreOuput');
-    let questionSectionement = document.getElementById('question');
+    let userScoreSection = document.getElementById('showScore');
+    let questionSectionElement = document.getElementById('question');
     let ongoingScore = document.getElementById('displayOngoingScore');
  
     let userAnswer1Btn = document.getElementById('answer1');
@@ -60,8 +60,8 @@ var questions = [
     let timeLeft = 45;
  
     // startQuiz function uses event listener dynamically change page and display question and choices
-    const startBtn = document.getElementById('startBtn');
-    startBtn.addEventListener('click', startQuiz);
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', startQuiz);
     function startQuiz() {
         // console.log('started');
         startUp.style.display = 'none';
@@ -73,11 +73,10 @@ var questions = [
         playerScore = 0;
         timeLeft = 45;
         showQuestion(currentQuestionIndex);
-       // console.log(questions[currentQuestionIndex])
         countDown();
     }
  
-    // setTimer function
+    // timer
     function countDown() {
     let interval =  setInterval(function() {
             if (timeLeft <= 0 ) {
@@ -93,15 +92,15 @@ var questions = [
  
     // Gets and sets questions & answers based on currentQuesitionIndex
     function showQuestion(q) {
-        questionSectionement.textContent = questions[q].question;
-       userAnswer1Btn.textContent = questions[q].answers[0];
-       userAnswer2Btn.textContent = questions[q].answers[1];
-       userAnswer3Btn.textContent = questions[q].answers[2];
+        questionSectionElement.textContent = questions[q].question;
+        userAnswer1Btn.textContent = questions[q].answers[0];
+        userAnswer2Btn.textContent = questions[q].answers[1];
+        userAnswer3Btn.textContent = questions[q].answers[2];
     }
  
     $("#answerBtns button").on("click", (function(event) {
-    let userGuess = $(this).text();
-        if (userGuess === questions[currentQuestionIndex].correctAnswer) {
+    let userAnswer = $(this).text();
+        if (userAnswer === questions[currentQuestionIndex].correctAnswer) {
             rightAnswer();
             console.log("correct");
         }
@@ -111,8 +110,6 @@ var questions = [
         }   
     }));
  
-    // if answered was correct this checks if current question index is less than questions items and and add score
-    // and updates content, else loads gameOver
     function rightAnswer() {
         playerScore +=10;
         correctAnswers++;
@@ -146,24 +143,29 @@ var questions = [
         getLastScore();
     }
  
-    const saveScoreBtn = document.getElementById('saveScore');
+    const saveScoreButton = document.getElementById('saveScore');
  
-    saveScoreBtn.addEventListener('click',function(event){
+    saveScoreButton.addEventListener('click',function(event){
         event.preventDefault();
-        const playerNameVal = document.getElementById('userName').value;
+        const playerName = document.getElementById('playerName').value;
         console.log("clicked the saved button");
-        if (playerNameVal == "") {
+        if (playerName == "") {
             alert("Please type in your name or initials");
         }
-        localStorage.setItem("name", playerNameVal);
+        localStorage.setItem("name", playerName);
         localStorage.setItem("score", playerScore);
      })
  
     let lastScore = document.getElementById('lastScore');
     
     function getLastScore() {
-    let lastScoreVal = localStorage.getItem('score');
-        if (lastScoreVal !== null) {
-            lastScore.textContent = "Your previous score was: " + lastScoreVal;
+    let theLastScore = localStorage.getItem('score');
+        if (theLastScore !== null) {
+            finalScore.textContent = "Your previous score was: " + theLastScore;
         }
     }
+
+    const playAgain = document.getElementById('playAgain');
+    playAgain.addEventListener('click', function() {
+        startQuiz();
+     });
